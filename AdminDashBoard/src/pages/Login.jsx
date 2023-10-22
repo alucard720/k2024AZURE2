@@ -49,7 +49,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 className="form-control"
-                placeholder="Correo"
+                placeholder="Correo del usuario"
               />
             </div>
             <div className="input-group mb-4">
