@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import {Modal} from "../../components/AddUsers"
 
 
 function DashboardCard10() {
-
+  const [modelOpen, setModalOpen] = useState(false)
   const [users, setUsers] = useState([])
+  
 
 
   useEffect(()=>{
@@ -41,14 +43,14 @@ function DashboardCard10() {
                   <div className="font-semibold text-left">Nombre</div>
                 </th> */}
                 <th className="p-2 whitespace-nowrap">
-                  <div className="font-semibold text-left">Email</div>
+                  <div className="font-semibold text-left">Nombres</div>
                 </th>
                 <th className="p-2 whitespace-nowrap">
-                  <div className="font-semibold text-center">Contrasena</div>
+                  <div className="font-semibold text-center">Correo</div>
                 </th>
-             {/*    <th className="p-2 whitespace-nowrap">
-                  <div className="font-semibold text-left">Spent</div>
-                </th> */}
+               <th className="p-2 whitespace-nowrap">
+                  <div className="font-semibold text-left">Acciones</div>
+                </th> 
               
               </tr>
             </thead>
@@ -61,14 +63,15 @@ function DashboardCard10() {
                     <tr key={item.id}>
                       <td className="p-2 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
-{/*                             <img className="rounded-full" src={customer.image} width="40" height="40" alt={customer.name} />
- */}                          </div>
-                          <div className="font-medium text-slate-800 dark:text-slate-100">{item.email}</div>
+                         {/*  <div className="w-10 h-10 shrink-0 mr-2 sm:mr-3">
+                            <img className="rounded-full" src={customer.image} width="40" height="40" alt={customer.name} />
+                          </div> */}
+                          <div className="font-medium text-slate-800 dark:text-slate-100">{item.nombre}</div>
+                        
                         </div>
                       </td>
                       <td className="p-2 whitespace-nowrap">
-                        <div className="text-left">{item.password}</div>
+                        <div className="text-left">{item.email}</div>
                       </td>
                     {/*   <td className="p-2 whitespace-nowrap">
                         <div className="text-left font-medium text-green-500">{customer.spent}</div>

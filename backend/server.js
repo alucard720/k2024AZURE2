@@ -23,13 +23,13 @@ app.get("/users", async (req, res)=>{
 
 //Register
 app.post("/register", async(req, res)=>{
-  const{email, passwor} = req.body;
-  if(!email || !password){
+  const{username, email, password} = req.body;
+  if(!username || !email || !password){
     return res.status(401).json({message:'Todos los campos son requeridos'});    
   }
-  const success = await db.createUser(email, password)
+  const success = await db.createUser(username,email, password)
 
-  if(success){
+  if(!success){
     res.status(201).json({message:'Usuario registrado'})
   }else{
     res.status(500).json({message:'Usuario no registrado'})

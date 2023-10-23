@@ -101,13 +101,13 @@ async function createUser(username, email, password) {
   //funcion para crear el usuario
 
   const query =
-    "insert into users(name, email, password) values(@name, @email, @password)";
+    "insert into users(nombre, email, password) values(@nombre, @email, @password)";
 
   try {
     const pool = await sql.connect(config);
     let request = await pool
       .request()
-      .input(username, sql.NVarChar(60), username)
+      .input("nombre", sql.NVarChar(60), username)
       .input("email", sql.NVarChar(60), email)
       .input("password", sql.VarChar(255), hashedPassword);
 
@@ -147,7 +147,7 @@ async function Login(email, password) {
 }
 
 //ADD USER
-async function addUser(email, password) {
+/* async function addUser(email, password) {
   try {
     const pool = await sql.connect(config);
     const result = await pool.request();
@@ -160,7 +160,7 @@ async function addUser(email, password) {
   } catch (error) {
     throw error;
   }
-}
+} */
 
 //UPDATE USERS
 
@@ -223,7 +223,6 @@ module.exports = {
   getAllusers,
   createUser,
   Login,
-  addUser,
   deleteUser,
   updateUsers,
 };
